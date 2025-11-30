@@ -1,5 +1,0 @@
-runtime: php82
-
-handlers:
-- url: /.*
-  script: auto
