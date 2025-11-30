@@ -1,12 +1,12 @@
 <?php
 // db_connect.php — mysqli connection
-declare(strict_types=1);
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+$host = '/cloudsql/xenon-crossbar-479105-n3:us-central1:openchatu-sql';
+$username = 'root';
+$password = '02152002Dragon';   // replace with the actual root password you set for Cloud SQL
+$dbname = 'online_counseling_db';
 
-$DB_HOST = '127.0.0.1';
-$DB_USER = 'root';
-$DB_PASS = '';
-$DB_NAME = 'online_counseling_db';
+$mysqli = new mysqli($host, $username, $password, $dbname);
 
-$conn = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
-$conn->set_charset('utf8mb4');
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
