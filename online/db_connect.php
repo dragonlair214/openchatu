@@ -1,13 +1,12 @@
 <?php
-// db_connect.php — mysqli connection
-declare(strict_types=1);
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+$host = '127.0.0.1';       // TCP host inside Cloud Run
+$port = 3306;              // MySQL port
+$username = 'root';
+$password = '02152002Dragon';
+$dbname = 'online_counseling_db';
 
-$DB_HOST = '127.0.0.1';
-$port = 3306;      
-$DB_USER = 'root';
-$DB_PASS = '02152002Dragonlair';
-$DB_NAME = 'online_counseling_db';
+$mysqli = new mysqli($host, $username, $password, $dbname, $port);
 
-$conn = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
-$conn->set_charset('utf8mb4');
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
