@@ -1,3 +1,5 @@
-runtime: php
-env: flex
-entrypoint: serve index.php
+runtime: php82
+
+handlers:
+- url: /.*
+  script: auto
